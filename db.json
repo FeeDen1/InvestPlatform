@@ -1,0 +1,77 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Leanne",
+      "surname": "Graham",
+      "username": "Alice",
+      "password": "469dns21",
+      "email": "Sincere@april.biz"
+    },
+    {
+      "id": "2",
+      "name": "Ervin",
+      "surname": "Howell",
+      "username": "Ervin",
+      "password": "r7yfk392",
+      "email": "Shanna@melissa.tv"
+    },
+    {
+      "id": "3",
+      "name": "Clementine",
+      "surname": "Bauch",
+      "username": "Clem",
+      "password": "9vpwz73t",
+      "email": "Nathan@yesenia.net"
+    },
+    {
+      "id": "4",
+      "name": "Patricia",
+      "surname": "Lebsack",
+      "username": "Pat",
+      "password": "5d9mz6bx",
+      "email": "Julianne.OConner@kory.org"
+    },
+    {
+      "id": "5",
+      "name": "Chelsey",
+      "surname": "Dietrich",
+      "username": "Chels",
+      "password": "3rfn87qp",
+      "email": "Lucio_Hettinger@annie.ca"
+    },
+    {
+      "id": "6",
+      "name": "Dennis",
+      "surname": "Schulist",
+      "username": "Den",
+      "password": "2wn8dyzv",
+      "email": "Karley_Dach@jasper.info"
+    },
+    {
+      "id": "7",
+      "name": "Kurtis",
+      "surname": "Weissnat",
+      "username": "Kurt",
+      "password": "8bgv3k4t",
+      "email": "Telly.Hoeger@billy.biz"
+    },
+    {
+      "id": "8",
+      "name": "Nicholas",
+      "surname": "Runolfsdottir",
+      "username": "Nick",
+      "password": "6pzc2jxg",
+      "email": "Sherwood@rosamond.me"
+    },
+    {
+      "id": "9",
+      "name": "Glenna",
+      "surname": "Reichert",
+      "username": "Glen",
+      "password": "4dm9c7nq",
+      "email": "Chaim_McDermott@dana.io"
+    }
+  ]
+
+}
