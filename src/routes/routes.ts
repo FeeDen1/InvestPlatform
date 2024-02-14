@@ -28,6 +28,6 @@ export const publicRoutes:IRoute[] = [
 ]
 
 export const privateRoutes:IRoute[] = [
-    {path: RouteNames.RECOVER_LOGIN, exact:true, component: MainPage}
+    {path: RouteNames.MAIN_PAGE, exact:true, component: MainPage}
 
 ]
