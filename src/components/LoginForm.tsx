@@ -1,6 +1,10 @@
 import React, {FC, useState} from 'react';
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import { useForm, SubmitHandler } from "react-hook-form"
+import {UserIcon} from "../UI/svg/UserIcon";
+import authSlice from "../store/reducers/auth/AuthSlice";
+import login from "../pages/Login";
+import {checkLogin} from "../store/reducers/auth/action-creators";
 
 interface LoginFormInput {
     username: string;
@@ -8,19 +12,32 @@ interface LoginFormInput {
 }
 const LoginForm:FC = () => {
     const dispatch = useAppDispatch()
-    const {error, isLoading} = useAppSelector(state => state.authSlice)
+    const {error, isLoading} = useAppSelector(state => state.auth)
     const { register, handleSubmit } = useForm<LoginFormInput>()
-    const onSubmit: SubmitHandler<LoginFormInput> = (data) => console.log(data)
+    const onSubmit: SubmitHandler<LoginFormInput> = (data) => {
+        dispatch(checkLogin({username: data.username, password: data.password}))
+    }
+
+
+
 
     return (
-
-            <form className='' onSubmit={handleSubmit(onSubmit)}>
-                <label>Username</label>
-                <input {...register("username")} />
-                <label>Password</label>
-                <input {...register("password")} />
-                <input type="submit" />
+        <div className='relative top-[130px] mx-auto flex flex-col items-center w-fit '>
+            <UserIcon className='h-[150px] w-[150px] stroke-blue-300 max-md:h-12 max-md:w-12'/>
+            <h1 className='text-5xl mb-10'>
+                Войти в аккаунт!
+            </h1>
+            <form className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
+                <label className='label'>Имя пользователя</label>
+                <input className='input-form' {...register("username")} />
+                <label className='label'>Пароль</label>
+                <input className='input-form' {...register("password")} />
+                <button onClick={handleSubmit(onSubmit)} className='border bg-blue-200 w-[110px] h-[40px] self-end text-xl rounded-md' type='submit'>
+                    Войти
+                </button>
             </form>
+        </div>
+
 
     );
 };

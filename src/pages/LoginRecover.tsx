@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoginRecover = () => {
     return (
-        <div>
+        <div className='h-dvh-80px'>
             ПУПУПУ
         </div>
     );

@@ -16,8 +16,8 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         logout(state) {
-            localStorage.removeItem('auth')
             localStorage.removeItem('username')
+            localStorage.removeItem('persist:root')
             state.isAuth = false;
             state.user = {} as IUser;
         },
@@ -29,8 +29,12 @@ const authSlice = createSlice({
         })
         builder.addCase(checkLogin.fulfilled,(state,action) => {
             if(action.payload) {
-                state.error = ''
+                state.isAuth = true
                 state.user = action.payload
+                localStorage.setItem('username',state.user.username)
+                state.error = ''
+
+
             } else {
                 state.error = 'Такого пользователя нет!'
             }
@@ -45,4 +49,5 @@ const authSlice = createSlice({
 })
 
 
+export const { logout } = authSlice.actions;
 export default authSlice.reducer;

@@ -4,7 +4,7 @@ interface MoneyIconProperties {
     className?: string;
 }
 
-export const MoneyIcon: FC<MoneyIconProperties> = ({className = 'h-20 w-20 stroke-black max-md:h-10 max-md:w-10'}: MoneyIconProperties) => {
+export const MoneyIcon: FC<MoneyIconProperties> = ({className = 'h-20 w-20 stroke-blue-400 max-md:h-10 max-md:w-10'}: MoneyIconProperties) => {
     return (
 
         <svg className={className} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"

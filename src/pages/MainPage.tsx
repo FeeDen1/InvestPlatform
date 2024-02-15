@@ -2,8 +2,8 @@ import React from 'react';
 
 const MainPage = () => {
     return (
-        <div>
-            МЕМЕМЕ
+        <div className='h-dvh-80px relative'>
+            <h1>МЕМЕМЕ</h1>
         </div>
     );
 };
