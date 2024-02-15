@@ -4,9 +4,12 @@ import {MoneyIcon} from "../UI/svg/MoneyIcon";
 import {UserIcon} from "../UI/svg/UserIcon";
 import authSlice from "../store/reducers/auth/AuthSlice";
 import {logout} from '../store/reducers/auth/AuthSlice'
+import {RouteNames} from "../routes/routes";
+import {useNavigate} from "react-router-dom";
 
 
 const Navbar: FC = () => {
+    const navigate = useNavigate()
     const {isAuth, user} = useAppSelector(state => state.auth)
     const dispatch = useAppDispatch()
     const logoutHandler = (event: React.MouseEvent) => {
@@ -15,7 +18,7 @@ const Navbar: FC = () => {
     }
     return (
         <div className='flex flex-row w-full justify-between pl-10 max-md:pl-5 border-b border-gray-500'>
-            <a href='/' className='flex flex-row gap-3 items-center'>
+            <div className='flex flex-row gap-3 items-center'>
                 <MoneyIcon/>
                 <div className='flex flex-col justify-center'>
                     <h1 className='  my-2 text-3xl max-md:text-xl font-bold text-black mt-0 mb-0 '>
@@ -25,7 +28,7 @@ const Navbar: FC = () => {
                         Investment Platform
                     </p>
                 </div>
-            </a>
+            </div>
 
             {isAuth ?
                 <div className='flex flex-cl gap-4 items-center pr-10 max-md:pr-5 max-md:gap-2'>
@@ -33,18 +36,21 @@ const Navbar: FC = () => {
                         {localStorage.getItem('username')}
                     </h2>
                     <UserIcon className='h-20 w-12 max-md:h-10 max-md:w-10'/>
-                    <button onClick={logoutHandler} className='text-3xl font-bold text-blue-400 p-2 hover:underline underline-offset-4 max-md:text-xl'>
+                    <button onClick={logoutHandler}
+                            className='text-3xl font-bold text-blue-400 p-2 hover:underline underline-offset-4 max-md:text-xl'>
                         Log out
                     </button>
                 </div>
                 :
-                <a href='/login' className='flex flex-cl gap-4 items-center pr-10 max-md:pr-5 max-md:gap-2'>
-                    <button className='max-md:text-xl text-3xl font-bold text-blue-400 p-2 hover:underline underline-offset-4'>
+                <div className='flex items-center mr-10 max-md:mr-5 gap-4 max-md:gap-2'>
+                    <button onClick={() => navigate(RouteNames.LOGIN)}
+                       className=' max-md:text-xl text-3xl font-bold text-blue-400 p-2 hover:underline underline-offset-4'>
                         Log In
+
                     </button>
                     <UserIcon className='h-20 w-12 max-md:h-10 max-md:w-10'/>
-                </a>}
-
+                </div>
+            }
         </div>
 
 
