@@ -31,7 +31,8 @@ const LoginForm:FC = () => {
                 <label className='label'>Имя пользователя</label>
                 <input className='input-form' {...register("username")} />
                 <label className='label'>Пароль</label>
-                <input className='input-form' {...register("password")} />
+                <input type='password' className='input-form' {...register("password")} />
+                {error && <h2 className='text-red-300'>{error}</h2>}
                 <button onClick={handleSubmit(onSubmit)} className='border bg-blue-200 w-[110px] h-[40px] self-end text-xl rounded-md' type='submit'>
                     Войти
                 </button>

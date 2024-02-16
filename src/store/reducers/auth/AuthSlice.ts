@@ -17,7 +17,7 @@ const authSlice = createSlice({
     reducers: {
         logout(state) {
             localStorage.removeItem('username')
-            localStorage.removeItem('persist:root')
+            localStorage.removeItem('auth')
             state.isAuth = false;
             state.user = {} as IUser;
         },
@@ -31,19 +31,23 @@ const authSlice = createSlice({
             if(action.payload) {
                 state.isAuth = true
                 state.user = action.payload
+                localStorage.setItem('auth', 'true')
                 localStorage.setItem('username',state.user.username)
                 state.error = ''
 
 
             } else {
-                state.error = 'Такого пользователя нет!'
+                state.error='ПППУПУПУ'
+                console.log(state.error)
             }
             state.isLoading = false
         })
         builder.addCase(checkLogin.rejected, (state, action) => {
             state.error = 'Проверьте правильность введенных данных'
+
             state.isLoading = false
         })
+
     }
 
 })
