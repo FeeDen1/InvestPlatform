@@ -3,6 +3,8 @@ import {IUser} from "../../../models/IUser";
 import {AuthState} from "./types";
 import {checkLogin} from "./action-creators";
 import {userAPI} from "../../../services/UserService";
+import {createTransform} from "redux-persist";
+import {Transform} from "redux-persist/es/types";
 
 const initialState:AuthState = {
     isAuth: false,
@@ -10,6 +12,17 @@ const initialState:AuthState = {
     error: '',
     isLoading: false,
 }
+
+export const authTransform: Transform<AuthState, Omit<AuthState, 'error'>, any> = createTransform(
+    (state) => {
+        const { error, ...rest } = state as AuthState;
+        return rest;
+    },
+    (state) => {
+        return { ...state, error: '' };
+    },
+    { whitelist: ['auth'] }
+);
 
 const authSlice = createSlice({
     name: 'auth',

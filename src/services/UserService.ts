@@ -10,7 +10,7 @@ export const userAPI = createApi({
             query: () => ({
                 url: '/users'
             }),
-            providesTags: result => ['User']
+
         }),
         addANewUser: builder.mutation<IUser, IUser>({
             query: (user) => ({
@@ -18,7 +18,7 @@ export const userAPI = createApi({
                 method: 'POST',
                 body: user
             }),
-            invalidatesTags: ['User']
+
         })
     })
 })
