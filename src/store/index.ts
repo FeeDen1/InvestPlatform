@@ -10,7 +10,6 @@ import {
     CombinedState,
     FetchArgs,
     FetchBaseQueryError, FetchBaseQueryMeta,
-    MutationDefinition,
     QueryDefinition
 } from "@reduxjs/toolkit/query";
 import {IUser} from "../models/IUser";
@@ -41,7 +40,7 @@ export const store = configureStore({
         getDefaultMiddleware({
             serializableCheck: {
                 ignoredActions: [
-                    FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER // Игнорируем все действия связанные с userAPI
+                    FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER
                 ],
             },
         }).concat(userAPI.middleware as Middleware),
